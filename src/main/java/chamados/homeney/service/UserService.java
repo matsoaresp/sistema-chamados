@@ -18,7 +18,6 @@ public class UserService {
     }
 
     public User createUser (RequestUserDto dto){
-
         User user = new User (
                 dto.getNome(),
                 dto.getSetor()
@@ -47,7 +46,6 @@ public class UserService {
     }
 
     public void delete (Long id){
-
         userRepository.deleteById(id);
     }
 

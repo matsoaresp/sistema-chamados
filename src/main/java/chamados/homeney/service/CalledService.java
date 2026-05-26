@@ -10,8 +10,6 @@ import java.util.List;
 
 @Service
 public class CalledService {
-
-
     private final CalledRepository calledRepository;
 
     public CalledService(CalledRepository calledRepository) {

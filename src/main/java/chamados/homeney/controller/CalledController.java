@@ -27,7 +27,7 @@ public class CalledController {
     }
 
     @GetMapping(value = "/{id}")
-    public ResponseEntity<Called> findCalled (@PathVariable Long id) throws  Exception{
+    public ResponseEntity<Called> findCalled (@PathVariable Long id) throws  Exception {
         Called called = calledService.findCalled(id);
         return ResponseEntity.ok().body(called);
     }
