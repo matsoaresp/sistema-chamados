@@ -7,13 +7,9 @@ import lombok.Setter;
 @Getter
 @Setter
 public class RequestCalledDto {
-
     @NotBlank
     private String titulo;
 
     @NotBlank
     private String descricao;
-
-
-
 }

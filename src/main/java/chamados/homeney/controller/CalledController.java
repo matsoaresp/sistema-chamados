@@ -1,5 +1,6 @@
 package chamados.homeney.controller;
 import chamados.homeney.dto.request.RequestCalledDto;
+import chamados.homeney.dto.response.ResponseCalledDto;
 import chamados.homeney.entity.Called;
 import chamados.homeney.service.CalledService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,9 +35,10 @@ public class CalledController {
 
     @PatchMapping("{id}/take")
     public ResponseEntity<Called> takeCalled (
-            @PathVariable Long id
+            @PathVariable Long id,
+            @RequestBody ResponseCalledDto dto
     ) throws  Exception {
-        Called called = calledService.takeCalled(id);
+        Called called = calledService.takeCalled(id, dto);
         return ResponseEntity.ok(called);
     }
 

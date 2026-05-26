@@ -1,5 +1,6 @@
 package chamados.homeney.entity;
 
+import chamados.homeney.enums.PriorityRole;
 import chamados.homeney.enums.UserRole;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -25,6 +26,7 @@ public class Usuario implements UserDetails {
     private String username;
     private String password;
     private UserRole role;
+
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

@@ -21,6 +21,7 @@ public class Called {
    private String descricao;
    @Enumerated(EnumType.STRING)
    private StatusRole status;
+   private PriorityRole priority;
 
    public Called(String titulo, String descricao) {
       this.titulo = titulo;

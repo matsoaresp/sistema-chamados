@@ -1,7 +1,9 @@
 package chamados.homeney.service;
 
 import chamados.homeney.dto.request.RequestCalledDto;
+import chamados.homeney.dto.response.ResponseCalledDto;
 import chamados.homeney.entity.Called;
+import chamados.homeney.enums.PriorityRole;
 import chamados.homeney.enums.StatusRole;
 import chamados.homeney.repository.CalledRepository;
 import org.springframework.stereotype.Service;
@@ -34,8 +36,9 @@ public class CalledService {
         return calledRepository.findById(id).orElseThrow(() -> new Exception("Chamado não encontrado"));
     }
 
-    public Called takeCalled (Long id) throws Exception {
+    public Called takeCalled (Long id, ResponseCalledDto dto) throws Exception {
         Called called = findCalled(id);
+        called.setPriority(dto.getRole());
         called.setStatus(StatusRole.PROGRESS);
         return calledRepository.save(called);
     }
