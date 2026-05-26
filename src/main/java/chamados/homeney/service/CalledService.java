@@ -36,6 +36,19 @@ public class CalledService {
         return calledRepository.findById(id).orElseThrow(() -> new Exception("Chamado não encontrado"));
     }
 
+    public Called takeCalled (Long id) throws Exception {
+        Called called = findCalled(id);
+        called.setStatus(StatusRole.PROGRESS);
+        return calledRepository.save(called);
+    }
 
+    public Called finishCalled (Long id) throws Exception {
+        Called called = findCalled(id);
+        if (called.getStatus() == StatusRole.PROGRESS){
+            throw new Exception("Nao sei");
+        }
+        called.setStatus(StatusRole.COMPLETED);
+        return calledRepository.save(called);
+    }
 
 }
