@@ -22,9 +22,8 @@ public class Called {
    @Enumerated(EnumType.STRING)
    private StatusRole status;
 
-   public Called(String descricao, String titulo) {
+   public Called(String titulo, String descricao) {
       this.titulo = titulo;
       this.descricao = descricao;
-
    }
 }

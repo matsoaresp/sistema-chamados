@@ -14,12 +14,9 @@ import lombok.Setter;
 @Table(name = "usuario")
 public class User {
 
-
-
     public User(String nome, String setor) {
         this.nome = nome;
         this.setor = setor;
-
     }
 
     @Id
@@ -29,6 +26,4 @@ public class User {
     private String setor;
     @Enumerated(EnumType.STRING)
     private UserRole role;
-
-
 }

@@ -6,11 +6,13 @@ import chamados.homeney.enums.StatusRole;
 import chamados.homeney.repository.CalledRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class CalledService {
 
-    private final CalledRepository calledRepository;
 
+    private final CalledRepository calledRepository;
 
     public CalledService(CalledRepository calledRepository) {
         this.calledRepository = calledRepository;
@@ -25,5 +27,15 @@ public class CalledService {
         called.setStatus(StatusRole.PENDING);
         return calledRepository.save(called);
     }
+
+    public List<Called> listAllCalled (){
+        return calledRepository.findAll();
+    }
+
+    public Called findCalled (Long id) throws Exception{
+        return calledRepository.findById(id).orElseThrow(() -> new Exception("Chamado não encontrado"));
+    }
+
+
 
 }
