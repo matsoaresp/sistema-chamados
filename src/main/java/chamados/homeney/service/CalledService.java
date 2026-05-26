@@ -44,11 +44,19 @@ public class CalledService {
 
     public Called finishCalled (Long id) throws Exception {
         Called called = findCalled(id);
-        if (called.getStatus() == StatusRole.PROGRESS){
-            throw new Exception("Nao sei");
+        if (called.getStatus() != StatusRole.PROGRESS){
+            throw new Exception("Não é possivel concluir pois o chamado não foi aberto");
         }
         called.setStatus(StatusRole.COMPLETED);
         return calledRepository.save(called);
     }
 
+    public Called cancelCalled (Long id) throws  Exception {
+        Called called = findCalled(id);
+        if (called.getStatus() != StatusRole.PROGRESS){
+        throw  new Exception("Não é possivel cancelar o chamado pos ele não foi aberto");
+        }
+        called.setStatus(StatusRole.CANCEL);
+        return calledRepository.save(called);
+    }
 }

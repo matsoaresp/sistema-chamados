@@ -32,7 +32,7 @@ public class CalledController {
         return ResponseEntity.ok().body(called);
     }
 
-    @PatchMapping("/{id}")
+    @PatchMapping("{id}/take")
     public ResponseEntity<Called> takeCalled (
             @PathVariable Long id
     ) throws  Exception {
@@ -40,7 +40,7 @@ public class CalledController {
         return ResponseEntity.ok(called);
     }
 
-    @PatchMapping("/{id}")
+    @PatchMapping("/{id}/finish")
     public ResponseEntity<Called> finishCalled (
             @PathVariable Long id
     ) throws  Exception {
@@ -48,6 +48,11 @@ public class CalledController {
         return ResponseEntity.ok(called);
     }
 
-
-
+    @PatchMapping("/{id}/cancel")
+    public ResponseEntity<Called> cancelCalled (
+            @PathVariable Long id
+    ) throws  Exception {
+        Called called = calledService.cancelCalled(id);
+        return ResponseEntity.ok(called);
+    }
 }
