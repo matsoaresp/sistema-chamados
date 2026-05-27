@@ -21,8 +21,10 @@ public class CalledService {
     public Called createCalled (RequestCalledDto dto){
         Called called = new Called (
                 dto.getTitulo(),
-                dto.getDescricao()
+                dto.getDescricao(),
+                dto.getPriority()
         );
+
 
         called.setStatus(StatusRole.PENDING);
         return calledRepository.save(called);
@@ -38,7 +40,7 @@ public class CalledService {
 
     public Called takeCalled (Long id, ResponseCalledDto dto) throws Exception {
         Called called = findCalled(id);
-        called.setPriority(dto.getRole());
+        called.setPriority(dto.getPriority());
         called.setStatus(StatusRole.PROGRESS);
         return calledRepository.save(called);
     }

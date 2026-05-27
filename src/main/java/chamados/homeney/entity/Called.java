@@ -26,5 +26,6 @@ public class Called {
    public Called(String titulo, String descricao) {
       this.titulo = titulo;
       this.descricao = descricao;
+
    }
 }

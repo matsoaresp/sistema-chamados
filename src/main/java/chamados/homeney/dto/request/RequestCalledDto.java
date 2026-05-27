@@ -12,4 +12,6 @@ public class RequestCalledDto {
 
     @NotBlank
     private String descricao;
+
+    private PriorityRole priority;
 }
