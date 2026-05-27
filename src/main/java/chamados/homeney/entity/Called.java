@@ -21,11 +21,11 @@ public class Called {
    private String descricao;
    @Enumerated(EnumType.STRING)
    private StatusRole status;
+   @Enumerated(EnumType.STRING)
    private PriorityRole priority;
 
    public Called(String titulo, String descricao) {
       this.titulo = titulo;
       this.descricao = descricao;
-
    }
 }

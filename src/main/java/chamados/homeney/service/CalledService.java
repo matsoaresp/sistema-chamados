@@ -21,11 +21,10 @@ public class CalledService {
     public Called createCalled (RequestCalledDto dto){
         Called called = new Called (
                 dto.getTitulo(),
-                dto.getDescricao(),
-                dto.getPriority()
+                dto.getDescricao()
         );
 
-
+        called.setPriority(PriorityRole.OPEN);
         called.setStatus(StatusRole.PENDING);
         return calledRepository.save(called);
     }
