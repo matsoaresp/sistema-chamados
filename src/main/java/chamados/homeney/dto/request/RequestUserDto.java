@@ -1,6 +1,7 @@
 package chamados.homeney.dto.request;
 
 
+import chamados.homeney.enums.PriorityRole;
 import chamados.homeney.enums.UserRole;
 import jakarta.validation.constraints.NotBlank;
 import lombok.Getter;
